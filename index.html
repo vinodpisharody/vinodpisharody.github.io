@@ -13,9 +13,8 @@
         }
 
         #container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
+            height: 100vh; /* Set the height to 100% of the viewport height */
+            overflow: auto; /* Enable scrolling within the container if needed */
         }
 
         #quote {
@@ -40,7 +39,7 @@
         }
 
         section {
-            display: none; /* hide all sections by default */
+            display: none;
             margin-bottom: 40px;
         }
     </style>
@@ -91,17 +90,14 @@
     </div>
 
     <script>
-        // JavaScript to show the section corresponding to the clicked navigation link
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                // Hide all sections
                 document.querySelectorAll('section').forEach(section => {
                     section.style.display = 'none';
                 });
 
-                // Show the corresponding section
                 const targetId = this.getAttribute('href').substring(1);
                 document.getElementById(targetId).style.display = 'block';
             });
