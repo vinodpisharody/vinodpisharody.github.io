@@ -112,30 +112,38 @@
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+<script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-                document.querySelectorAll('section').forEach(section => {
-                    section.style.display = 'none';
-                });
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-
-                // If it's not the home section, hide the quote
-                if (targetId !== 'home') {
-                    document.getElementById('quote').style.display = 'none';
-                } else {
-                    // If it's the home section, show the quote
-                    document.getElementById('quote').style.display = 'block';
-                }
-
-                // Show only the title of the clicked section
-                targetSection.style.display = 'block';
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
             });
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            // If it's not the home section, hide the quote
+            if (targetId !== 'home') {
+                document.getElementById('quote').style.display = 'none';
+            } else {
+                // If it's the home section, show the quote
+                document.getElementById('quote').style.display = 'block';
+            }
+
+            // Show only the title of the clicked section
+            targetSection.style.display = 'block';
+
+            // Hide Your Name and Welcome to my website in non-home sections
+            if (targetId !== 'home') {
+                document.getElementById('home').style.display = 'none';
+            } else {
+                // If it's the home section, show Your Name and Welcome to my website
+                document.getElementById('home').style.display = 'block';
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
