@@ -57,6 +57,10 @@
         <div id="home">
             <h1>Your Name</h1>
             <p>Welcome to my website!</p>
+
+            <!-- Richard Feynman's Quote -->
+            <h2>Richard Feynman's Quote</h2>
+            <p>"You ask me if an ordinary person—by studying hard—would get to be able to imagine these things like I imagine. Of course. I was an ordinary person who studied hard. There's no miracle people. It just happens they got interested in this thing, and they learned all this stuff. They're just people. There's no talent or special miracle ability to understand quantum mechanics or a miracle ability to imagine electromagnetic fields that comes without practice and reading and learning and study. So if you take an ordinary person who's willing to devote a great deal of time and study and work and thinking and mathematics, then he's become a scientist." -Richard Feynman</p>
         </div>
 
         <section id="book-recommendation">
@@ -99,7 +103,14 @@
                 
                 // Show only the title of the clicked section
                 targetSection.style.display = 'block';
-                targetSection.innerHTML = `<h2>${anchor.innerText}</h2>`;
+
+                // If it's not the home section, hide the quote
+                if (targetId !== 'home') {
+                    document.getElementById('quote').style.display = 'none';
+                } else {
+                    // If it's the home section, show the quote
+                    document.getElementById('quote').style.display = 'block';
+                }
             });
         });
     </script>
