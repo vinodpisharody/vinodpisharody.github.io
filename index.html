@@ -13,8 +13,8 @@
         }
 
         #container {
-            height: 100vh; /* Set the height to 100% of the viewport height */
-            overflow: auto; /* Enable scrolling within the container if needed */
+            height: 100vh;
+            overflow: auto;
         }
 
         #quote {
@@ -60,27 +60,23 @@
         </div>
 
         <section id="book-recommendation">
-            <h2>Book Recommendation Section</h2>
-            <!-- Add more content as needed -->
+            <h2>Book Recommendation</h2>
         </section>
 
         <section id="research-interest">
-            <h2>Research Interest Section</h2>
-            <!-- Add more content as needed -->
+            <h2>Research Interest</h2>
         </section>
 
         <section id="cv">
-            <h2>CV Section</h2>
-            <!-- Add more content as needed -->
+            <h2>CV</h2>
         </section>
 
         <section id="publications">
-            <h2>Publications Section</h2>
-            <!-- Add more content as needed -->
+            <h2>Publications</h2>
         </section>
 
         <section id="contact">
-            <h2>Contact Section</h2>
+            <h2>Contact</h2>
             <p>Email: <a href="mailto:vinod.pisharody22@gmail.com">vinod.pisharody22@gmail.com</a></p>
         </section>
 
@@ -99,7 +95,11 @@
                 });
 
                 const targetId = this.getAttribute('href').substring(1);
-                document.getElementById(targetId).style.display = 'block';
+                const targetSection = document.getElementById(targetId);
+                
+                // Show only the title of the clicked section
+                targetSection.style.display = 'block';
+                targetSection.innerHTML = `<h2>${anchor.innerText}</h2>`;
             });
         });
     </script>
