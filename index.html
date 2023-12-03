@@ -110,6 +110,15 @@
 
       // Show the selected content section
       document.getElementById(contentId).classList.add('active');
+
+      // Hide home page content if Book Recommendation is clicked
+      if (contentId === 'book') {
+        document.getElementById('quote-box').style.display = 'none';
+        document.getElementById('blackhole-background').style.padding = '0';
+      } else {
+        document.getElementById('quote-box').style.display = 'block';
+        document.getElementById('blackhole-background').style.padding = '20px';
+      }
     }
   </script>
 
