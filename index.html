@@ -105,30 +105,33 @@
 
   </div>
 
-  <script>
-    function showContent(contentId) {
-      // Hide all content sections
-      document.querySelectorAll('.content').forEach(function (content) {
-        content.classList.remove('active');
+<script>
+  function showContent(contentId) {
+    // Hide all content sections
+    document.querySelectorAll('.content').forEach(function (content) {
+      content.classList.remove('active');
+    });
+
+    // Show the selected content section
+    document.getElementById(contentId).classList.add('active');
+
+    // Show/hide home page content based on the selected section
+    if (contentId === 'home') {
+      document.querySelectorAll('.home-content').forEach(function (content) {
+        content.style.display = 'block';
       });
-
-      // Show the selected content section
-      document.getElementById(contentId).classList.add('active');
-
-      // Show/hide home page content based on the selected section
-      if (contentId === 'home') {
-        document.querySelectorAll('.home-content').forEach(function (content) {
-          content.style.display = 'block';
-        });
-        document.getElementById('welcome-message').style.display = 'block';
-      } else {
-        document.querySelectorAll('.home-content').forEach(function (content) {
-          content.style.display = 'none';
-        });
-        document.getElementById('welcome-message').style.display = 'none';
-      }
+      document.getElementById('quote-box').style.display = 'block';
+      document.getElementById('welcome-message').style.display = 'block';
+    } else {
+      document.querySelectorAll('.home-content').forEach(function (content) {
+        content.style.display = 'none';
+      });
+      document.getElementById('quote-box').style.display = 'none';
+      document.getElementById('welcome-message').style.display = 'none';
     }
-  </script>
+  }
+</script>
+
 
 </body>
 </html>
