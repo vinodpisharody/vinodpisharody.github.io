@@ -58,18 +58,23 @@
 
     .content {
       padding: 20px;
+      display: none;
+    }
+
+    .content.active {
+      display: block;
     }
   </style>
 </head>
 <body>
 
   <div class="navigation">
-    <a href="#home">Home</a>
-    <a href="#book">Book Recommendation</a>
-    <a href="#research">Research Interest</a>
-    <a href="#cv">CV</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" onclick="showContent('home')">Home</a>
+    <a href="#book" onclick="showContent('book')">Book Recommendation</a>
+    <a href="#research" onclick="showContent('research')">Research Interest</a>
+    <a href="#cv" onclick="showContent('cv')">CV</a>
+    <a href="#publications" onclick="showContent('publications')">Publications</a>
+    <a href="#contact" onclick="showContent('contact')">Contact</a>
   </div>
 
   <div id="blackhole-background">
@@ -80,16 +85,33 @@
     <p>I am Vinod Pisharody and I am a physicist. I am interested in using gravitational waves as a probe to study the Universe we live in.</p>
     <p>I did my undergraduate from St.Xavier's College, Mumbai, Maharashtra, India, and my masters in Physics from Harish-Chandra Research Institute, Allahabad (Prayagraj), Uttar Pradesh, India.</p>
 
-    <div class="content">
+    <div id="home" class="content active">
+      <!-- Home page content goes here -->
+    </div>
+
+    <div id="book" class="content">
       <h2>Book Recommendations</h2>
       <ul>
         <li>Gravitational Waves: Volume 1: Theory and Experiments by Michelle Maggoire - This is a wonderful book to introduce yourself to the theory of gravitational waves</li>
-        <li>Book Title 2</li>
-        <li>Book Title 3</li>
         <!-- Add more book titles as needed -->
       </ul>
     </div>
+
+    <!-- Add content for other sections (research, cv, publications, contact) similarly -->
+
   </div>
+
+  <script>
+    function showContent(contentId) {
+      // Hide all content sections
+      document.querySelectorAll('.content').forEach(function (content) {
+        content.classList.remove('active');
+      });
+
+      // Show the selected content section
+      document.getElementById(contentId).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
